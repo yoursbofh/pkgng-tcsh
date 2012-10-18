@@ -11,7 +11,7 @@ set pkg_cmd =  (add audit autoremove backup check clean create delete fetch \
 
 #  Commands supported:
 #        add            Registers a package and installs it on the system
-#        audit          Reports vulnerable packages
+# [*]    audit          Reports vulnerable packages
 #        autoremove     Removes orphan packages
 #        backup         Backs-up and restores the local package database
 #        check          Checks for missing dependencies and database consistency
