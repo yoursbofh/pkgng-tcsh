@@ -1,0 +1,48 @@
+# tcsh completions file
+# Whom: Sergey V. Dyatko <sergey.dyatko@gmail.com>
+# $Id$
+
+set pkg_cmd =  (add audit autoremove backup check clean create delete fetch \
+				help info install query register remove repo rquery search set \
+				shell shlib stats update updating upgrade version which)
+
+# [+] done
+# [*] partialy done
+
+#  Commands supported:
+#        add            Registers a package and installs it on the system
+#        audit          Reports vulnerable packages
+#        autoremove     Removes orphan packages
+#        backup         Backs-up and restores the local package database
+#        check          Checks for missing dependencies and database consistency
+#        clean          Cleans old packages from the cache
+#        create         Creates software package distributions
+#        delete         Deletes packages from the database and the system
+#        fetch          Fetches packages from a remote repository
+# [+]    help           Displays help information
+# [*]    info           Displays information about installed packages
+#        install        Installs packages from remote package repositories
+#        query          Queries information about installed packages
+#        register       Registers a package into the local database
+#        remove         Deletes packages from the database and the system
+#        repo           Creates a package repository catalogue
+#        rquery         Queries information in repository catalogues
+#        search         Performs a search of package repository catalogues
+#        set            Modifies information about packages in the local database
+#        shell          Opens a debug shell
+#        shlib          Displays which packages link against a specific shared library
+#        stats          Displays package database statistics
+# [+]    update         Updates package repository catalogues
+#        updating       Displays UPDATING information for a package
+#        upgrade        Performs upgrades of packaged software distributions
+#        version        Displays the versions of installed packages
+# [+]    which          Displays which package installed a specific file
+
+complete pkg \
+	'p/1/$pkg_cmd/' \
+	'n/help/$pkg_cmd/' \
+	'n/which/f/' \
+	'n/audit/`pkg query "%n-%v"`/' \
+	'n/info/`pkg query "%n-%v"`/' \
+	'n/update/x: -q  Force quiet output | -f  Force a full download/'
+
